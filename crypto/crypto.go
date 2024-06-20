@@ -5,7 +5,7 @@ import (
 )
 
 func EncryptMessage(publicKey string, message string) (string, error) {
-		armor, err := helper.EncryptMessageWithPassword([]byte(publicKey), message)
+		armor, err := helper.EncryptMessageArmored(publicKey, message)
 		if err != nil {
 			return "", err
 		}

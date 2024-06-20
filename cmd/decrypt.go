@@ -66,7 +66,7 @@ var decryptCmd = &cobra.Command{
             return
         }
 
-				var passphrase string
+		var passphrase string
         passphrasePrompt := &survey.Password{
             Message: "Enter the passphrase for the private key:",
         }

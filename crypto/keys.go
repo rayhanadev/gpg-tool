@@ -78,16 +78,16 @@ func ExportPublicKey(keyID string) (string, error) {
     if err != nil {
         return "", err
     }
-    return out.String(), nil
+    return strings.TrimSpace(out.String()), nil
 }
 
 func ExportPrivateKey(keyID string) (string, error) {
-		cmd := exec.Command("gpg", "--armor", "--export-secret-key", keyID)
-		var out bytes.Buffer
-		cmd.Stdout = &out
-		err := cmd.Run()
-		if err != nil {
-			return "", err
-		}
-		return out.String(), nil
+    cmd := exec.Command("gpg", "--armor", "--export-secret-key", keyID)
+    var out bytes.Buffer
+    cmd.Stdout = &out
+    err := cmd.Run()
+    if err != nil {
+        return "", err
+    }
+    return strings.TrimSpace(out.String()), nil
 }
